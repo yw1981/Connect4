@@ -1,15 +1,16 @@
 
 angular.module('myApp')
 .controller('Ctrl', ['$scope','$rootScope', '$log', '$timeout',
-       'gameService', 'gameLogic', 'resizeGameAreaService', function (
+       'gameService', 'gameLogic', 'resizeGameAreaService','dragAndDropService', function (
    $scope, $rootScope, $log, $timeout,
-  gameService, gameLogic, resizeGameAreaService) {
+  gameService, gameLogic, resizeGameAreaService,dragAndDropService) {
     'use strict';  
 
         resizeGameAreaService.setWidthToHeight(1.16667);
 
     var rowsNum = 6;
     var colsNum = 7;
+    dragAndDropService.addDragListener("gameArea", handleDragEvent);
     var draggingLines = document.getElementById("draggingLines");
      var horizontalDraggingLine = document.getElementById("horizontalDraggingLine");
      var verticalDraggingLine = document.getElementById("verticalDraggingLine");
@@ -210,7 +211,7 @@ angular.module('myApp')
       return  $scope.turnIndex === 1 ? "img/blue.png" : "img/red.png";
     };
 
-    window.handleDragEvent = handleDragEvent;
+    //window.handleDragEvent = handleDragEvent;
 
         gameService.setGame({
           gameDeveloperEmail: "purnima.p01@gmail.com",

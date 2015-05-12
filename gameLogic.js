@@ -2,7 +2,7 @@ var h=6;//Rows
 var w=7;//Columns
 
 'use strict';
-angular.module('myApp',[]).factory('gameLogic', function() {
+angular.module('myApp',['ngTouch', 'ui.bootstrap']).factory('gameLogic', function() {
 function isEqual(object1, object2) {
   //console.log(JSON.stringify(object1));
   //console.log(JSON.stringify(object2));
