@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       },
       dist: {
         // Order is important! gameLogic.js must be first because it defines myApp angular module.
-        src: ['gameLogic.js', 'game.js',],
+        src: ['ts_output_readonly_do_NOT_change_manually/src/gameLogic.js', 'ts_output_readonly_do_NOT_change_manually/src/game.js',],
         dest: 'dist/everything.js',
       },
     },
@@ -86,14 +86,14 @@ module.exports = function(grunt) {
            // 'http://yoav-zibin.github.io/emulator/dist/gameServices.min.js',
             //'http://yoav-zibin.github.io/emulator/angular-translate/angular-translate.2.6.1.min.js',
             //'languages/en.js',
-              'http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-touch.min.js' ,           
+              'http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-touch.min.js' ,
             'http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js',
             'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css',
             'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.woff',
             'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.ttf',
-            'http://yoav-zibin.github.io/emulator/dist/turnBasedServices.2.min.js',
+            'http://yoav-zibin.github.io/emulator/dist/turnBasedServices.3.min.js',
             'http://yoav-zibin.github.io/emulator/main.css',
-           
+
              'img/block1.png', 'img/red.png', 'img/blue.png',
            'img/HelpSlide1.png',
             'img/HelpSlide2.png',
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
             'game.css',
              'languages/en.js',
              'languages/hn.js'
-            
+
           ],
           network: ['dist/everything.min.js.map', 'dist/everything.js','languages/en.js',
             'languages/hn.js',],
@@ -150,9 +150,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Default task(s).
-  grunt.registerTask('default', ['jshint', 'karma',
+  grunt.registerTask('default', [ 'karma',
       'concat', 'uglify',
       'processhtml', 'manifest',
-      'http-server', 'protractor']);
+      'http-server']);
 
 };
